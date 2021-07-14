@@ -1,0 +1,3 @@
+<h1> If you see this, the server is up and running !!   </h1>
+<h2> Learning the deployment process via GitHub, Jenkins, Ansible, Docker, Kubernates, AWS </h2>
+<h2> Glad to see you here </h2>
