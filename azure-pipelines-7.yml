@@ -29,20 +29,28 @@ stages:
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
         goals: 'package'
-
-- stage: CreateImage
-  displayName: Build image
-  jobs:
-  - job: Build
-    displayName: Build
-    pool: Default
-    steps:
-    - bash: 
-        echo $(Build.SourcesDirectory)
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
+      
+     - task: Docker@2
+       displayName: Build an image
+       inputs:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+
+# - stage: CreateImage
+#   displayName: Build image
+#   jobs:
+#   - job: Build
+#     displayName: Build
+#     pool: Default
+#     steps:
+#     - bash: 
+#         echo $(Build.SourcesDirectory)
+#     - task: Docker@2
+#       displayName: Build an image
+#       inputs:
+#         command: build
+#         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+#         tags: |
+#           $(tag)
