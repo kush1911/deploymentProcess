@@ -32,7 +32,6 @@ stages:
       
      - task: Docker@2
        displayName: Build an image
-       pool: Default
        steps:
         - bash:
             sh 'docker build -t assignment6 .'
