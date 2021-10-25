@@ -32,11 +32,8 @@ stages:
       
      - task: Docker@2
        displayName: Build an image
-     - bash:
-            sh 'docker build -t assignment6 .'
-            sh 'docker run -d --name assignment6 -p 8080:8080 assignment6'
-
-        
+     - script: docker build -t assignment6 .
+     - script: docker run -d --name assignment6 -p 8080:8080 assignment6
 
 # - stage: CreateImage
 #   displayName: Build image
