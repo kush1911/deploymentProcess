@@ -32,11 +32,18 @@ stages:
       
      - task: Docker@2
        displayName: Build an image
-       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
+       pool: Default
+       steps:
+        - bash:
+            sh 'docker build -t assignment6 .'
+     - task: Docker@2
+       displayName: Running the application on port 8080
+       pool: Default
+       steps:
+        - bash:
+            sh 'docker run -d --name assignment6 -p 8080:8080 assignment6'
+
+        
 
 # - stage: CreateImage
 #   displayName: Build image
