@@ -32,8 +32,8 @@ stages:
       
      - task: Docker@2 
        displayName: Switch to ansadmin
+     - script: sudo su
      - script: su - ansadmin
-     - script: ansadmin
      - script: cd /home/azureuser/myagent2/_work/3/s
 
      - task: Docker@2
