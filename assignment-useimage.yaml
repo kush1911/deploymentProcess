@@ -5,11 +5,11 @@
   tasks:
       - name: Stop Running Containers
         command: docker stop assignment-container
-        ignore_error: yes
+        ignore_errors: yes
       
       - name: Remove stopped container
         command: docker rm assignment-container
-        ignore_error: yes
+        ignore_errors: yes
       
       - name: Remove Images
         command: docker rmi kussha/assignment-image
