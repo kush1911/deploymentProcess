@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  become: true
 
   tasks:
       - name: Stop Running Containers
@@ -13,6 +12,7 @@
       
       - name: Remove Images
         command: docker rmi kussha/assignment-image
+        ignore_errors: yes
       
       - name: Pull image from docker hub
         command: docker pull kussha/assignment-image:latest
