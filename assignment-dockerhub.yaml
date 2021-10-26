@@ -3,7 +3,9 @@
 
   tasks:
       - name: Create docker image using the docker file
-        command: docker build -t assignment-image:latest
+        command: docker build -t assignment-image:latest .
+        args:
+            chdir: /home/azureuser/myagent2/_work/3/s
       
       - name: Create a tag of the image
         command: docker tag assignment-image:latest kussha/assignment-image
