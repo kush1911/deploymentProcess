@@ -1,0 +1,16 @@
+---
+- hosts: all
+
+  tasks:
+      - name: Create docker image using the docker file
+        command: docker build -t assignment-image:latest
+      
+      - name: Create a tag of the image
+        command: docker tag assignment-image:latest kussha/assignment-image
+      
+      - name: Push the image to docker hub
+        command: docker push kussha/assignment-image
+      
+      - name: Remove image from the ansible server
+        command: docker rmi assignment-image:latest kussha/assignment-image
+        ignore_errors: yes

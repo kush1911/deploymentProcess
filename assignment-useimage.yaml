@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+      - name: Stop Running Containers
+        command: docker stop assignment-container
+        ignore_error: yes
+      
+      - name: Remove stopped container
+        command: docker rm assignment-container
+        ignore_error: yes
+      
+      - name: Remove Images
+        command: docker rmi kussha/assignment-image
+      
+      - name: Pull image from docker hub
+        command: docker pull kussha/assignment-image:latest
+        ignore_errors: yes
+
+      - name: Create a container out of the image
+        command: docker run -d --name assignment-container -p 8080:8080 kussha/assignment-image:latest
